@@ -11,7 +11,7 @@
 		"start": "nest start",
 		"start:dev": "nest start --watch",
 		"start:dev:batch": "nest start nestar-betch --watch",
-		"train": "node apps/nestar-api/src/train.ts --watch",
+		"train": "nodemon --watch apps/nestar-api/src/train.ts --exec ts-node -r tsconfig-paths/register apps/nestar-api/src/train.ts",
 		"start:debug": "nest start --debug --watch",
 		"start:prod": "NODE_ENV=production node dist/apps/nestar-api/main",
 		"start:prod:batch": "node dist/apps/nestar-betch/main",
@@ -44,6 +44,7 @@
 		"graphql-upload": "^13.0.0",
 		"moment": "^2.29.4",
 		"mongoose": "^8.0.0",
+		"nodemon": "^3.1.10",
 		"reflect-metadata": "^0.1.13",
 		"rxjs": "^7.8.1",
 		"ws": "^8.14.2"
