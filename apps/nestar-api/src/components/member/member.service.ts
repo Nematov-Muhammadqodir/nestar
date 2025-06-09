@@ -17,8 +17,8 @@ export class MemberService {
 			//TODO: Authentication with tokens
 			return result;
 		} catch (err) {
-			console.log('Error, signup');
-			throw new BadRequestException(err);
+			console.log('Error, signup', err.message);
+			throw new BadRequestException(Message.USED_MEMBER_NICK_OR_PHONE);
 		}
 	}
 
