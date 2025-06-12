@@ -2,6 +2,7 @@ import { Injectable, NestInterceptor, ExecutionContext, CallHandler, Logger } fr
 import { GqlContextType, GqlExecutionContext } from '@nestjs/graphql';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
+import { Member } from '../dto/member/member';
 
 @Injectable()
 export class LoggingInterceptor implements NestInterceptor {
@@ -14,7 +15,7 @@ export class LoggingInterceptor implements NestInterceptor {
 		if (requestType === 'http') {
 			//Develop if needed!
 		} else if (requestType === 'graphql') {
-			//1: Print Request
+			//1: Print Requests
 			const gqlContext = GqlExecutionContext.create(context);
 
 			this.logger.log(`${this.stringify(gqlContext.getContext().req.body)}`, 'REQUEST');
@@ -23,7 +24,7 @@ export class LoggingInterceptor implements NestInterceptor {
 
 			//3: No Errors, giving Response below
 			return next.handle().pipe(
-				tap((context: ExecutionContext) => {
+				tap((context) => {
 					const responseTime = Date.now() - recordTime;
 					this.logger.log(`${this.stringify(context)} - ${responseTime}ms \n\n`, 'RESPONSE');
 				}),
@@ -31,7 +32,7 @@ export class LoggingInterceptor implements NestInterceptor {
 		}
 	}
 
-	private stringify(context: ExecutionContext): string {
+	private stringify(context: Member | any): string {
 		return JSON.stringify(context).slice(0, 75);
 	}
 }
