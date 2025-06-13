@@ -29,6 +29,9 @@ export class MemberInput {
 
 @InputType()
 export class LoginInput {
+	constructor() {
+		console.log('Pipe executed');
+	}
 	@IsNotEmpty()
 	@Length(3, 12)
 	@Field(() => String)
