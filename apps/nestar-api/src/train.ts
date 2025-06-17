@@ -1,3 +1,21 @@
+// ZO-TASK:
+
+// Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
+// MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
+
+function areParenthesesBalanced(input: string) {
+	let open = [];
+	let close = [];
+	input.split('').forEach((ele) => {
+		if (ele === '(') open.push(ele);
+		else if (ele === ')') close.push(ele);
+	});
+
+	const result = open.length === close.length;
+	return result;
+}
+
+console.log(areParenthesesBalanced('string()ichida(qavslar)soni()balansda'));
 // TASK ZN:
 
 // Shunday function yozing, uni array va number parametri bo'lsin.
@@ -8,12 +26,12 @@
 
 // MASALAN: rotateArray([1, 2, 3, 4, 5, 6], 3); return [5, 6, 1, 2, 3, 4];
 
-function rotateArray(array: number[], index: number) {
-	const tilIndex = array.slice(0, index + 1);
-	const fromIndex = array.slice(index + 1);
-	return fromIndex.concat(tilIndex);
-}
-console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
+// function rotateArray(array: number[], index: number) {
+// 	const tilIndex = array.slice(0, index + 1);
+// 	const fromIndex = array.slice(index + 1);
+// 	return fromIndex.concat(tilIndex);
+// }
+// console.log(rotateArray([1, 2, 3, 4, 5, 6], 3));
 // ZL-TASK:
 
 // Shunday function yozing, u parametrda berilgan stringni kebab casega otkazib qaytarsin. Bosh harflarni kichik harflarga ham otkazsin.
