@@ -24,7 +24,7 @@ export class MemberResolver {
 		return await this.memberService.signup(input);
 	}
 
-	@UseGuards(AuthGuard)
+	// @UseGuards(AuthGuard)
 	@Mutation(() => Member)
 	public async login(@Args('input') input: LoginInput): Promise<Member> {
 		console.log('Mutation login');
@@ -78,7 +78,9 @@ export class MemberResolver {
 		return await this.memberService.getAgents(memberId, input);
 	}
 
-	// ADMIN
+	//^ ADMIN
+
+	//! Authorization ADMIN
 	@Roles(MemberType.ADMIN)
 	@UseGuards(RolesGuard)
 	@Query(() => Members)
@@ -88,7 +90,7 @@ export class MemberResolver {
 		return await this.memberService.getAllMembersByAdmin(input);
 	}
 
-	// Authorization ADMIN
+	//! Authorization ADMIN
 	@Roles(MemberType.ADMIN)
 	@UseGuards(RolesGuard)
 	@Mutation(() => Member)

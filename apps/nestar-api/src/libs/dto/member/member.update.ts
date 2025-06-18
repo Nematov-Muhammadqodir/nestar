@@ -5,6 +5,10 @@ import { ObjectId } from 'mongoose';
 
 @InputType()
 export class MemberUpdate {
+	constructor() {
+		console.log('Executed MemberUpdate pipe');
+	}
+
 	@IsNotEmpty()
 	@Field(() => String)
 	_id: ObjectId;
