@@ -12,6 +12,7 @@ import { RolesGuard } from '../auth/guards/roles.guard';
 import { MemberUpdate } from '../../libs/dto/member/member.update';
 import { getSerialForImage, shapeIntoMongoObjectId, validMimeTypes } from '../../libs/config';
 import { WithoutGuard } from '../auth/guards/without.guard';
+
 import { GraphQLUpload, FileUpload } from 'graphql-upload';
 import { createWriteStream } from 'fs';
 import { Message } from '../../libs/enums/common.enum';
@@ -105,6 +106,8 @@ export class MemberResolver {
 	//^ UPLOADER
 	// IMAGE UPLOADER (member.resolver.ts)
 
+	//*=========================imageUploader👇🏻==============================
+
 	@UseGuards(AuthGuard)
 	@Mutation((returns) => String)
 	public async imageUploader(
@@ -132,6 +135,8 @@ export class MemberResolver {
 
 		return url;
 	}
+
+	//*===========================imagesUploader👇🏻===========================
 
 	@UseGuards(AuthGuard)
 	@Mutation((returns) => [String])
@@ -171,4 +176,6 @@ export class MemberResolver {
 		await Promise.all(promisedList);
 		return uploadedImages;
 	}
+
+	//*===============================================================
 }
