@@ -1,21 +1,31 @@
+console.log('ZO');
+function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+	return arr1.every((val) => arr2.includes(val));
+}
+
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
+console.log(areArraysEqual([1, 2, 3], [5, 1, 2]));
+console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
+
 // ZO-TASK:
 
 // Shunday function yozing, u parametrdagi string ichidagi qavslar miqdori balansda ekanligini aniqlasin. Ya'ni ochish("(") va yopish(")") qavslar soni bir xil bolishi kerak.
 // MASALAN: areParenthesesBalanced("string()ichida(qavslar)soni()balansda") return true
 
-function areParenthesesBalanced(input: string) {
-	let open = [];
-	let close = [];
-	input.split('').forEach((ele) => {
-		if (ele === '(') open.push(ele);
-		else if (ele === ')') close.push(ele);
-	});
+// function areParenthesesBalanced(input: string) {
+// 	let open = [];
+// 	let close = [];
+// 	input.split('').forEach((ele) => {
+// 		if (ele === '(') open.push(ele);
+// 		else if (ele === ')') close.push(ele);
+// 	});
 
-	const result = open.length === close.length;
-	return result;
-}
+// 	const result = open.length === close.length;
+// 	return result;
+// }
 
-console.log(areParenthesesBalanced('string()ichida(qavslar)soni()balansda'));
+// console.log(areParenthesesBalanced('string()ichida(qavslar)soni()balansda'));
 // TASK ZN:
 
 // Shunday function yozing, uni array va number parametri bo'lsin.
