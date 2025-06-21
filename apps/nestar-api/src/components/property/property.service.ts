@@ -151,7 +151,7 @@ export class PropertyService {
 
 		if (options) {
 			match['$or'] = options.map((ele) => {
-				return { [ele]: true };
+				return { [ele]: true }; //{propertyRent:true}
 			});
 		}
 	}
