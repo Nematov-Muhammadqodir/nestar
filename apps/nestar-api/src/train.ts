@@ -1,12 +1,26 @@
-console.log('ZO');
-function areArraysEqual(arr1: number[], arr2: number[]): boolean {
-	return arr1.every((val) => arr2.includes(val));
-}
+// TASK ZQ:
 
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
-console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
-console.log(areArraysEqual([1, 2, 3], [5, 1, 2]));
-console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
+// Shunday function yozing, bu function berilgan array parametr
+// ichida ikki marotaba yoki undan ko'p takrorlangan sonlarni alohida
+// array'da yagonadan qaytarsin qaytarsin.
+
+// MASALAN: findDuplicates([1,2,3,4,5,4,3,4]); return [3, 4];
+
+function findDuplicates(input: number[]) {
+	const result = input.filter((ele, i) => input.indexOf(ele) !== i);
+
+	return [...new Set(result)];
+}
+console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 4, 4, 4]));
+// console.log('ZO');
+// function areArraysEqual(arr1: number[], arr2: number[]): boolean {
+// 	return arr1.every((val) => arr2.includes(val));
+// }
+
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2]));
+// console.log(areArraysEqual([1, 2, 3], [3, 1, 2, 1]));
+// console.log(areArraysEqual([1, 2, 3], [5, 1, 2]));
+// console.log(areArraysEqual([1, 2, 3], [4, 1, 2]));
 
 // ZO-TASK:
 
