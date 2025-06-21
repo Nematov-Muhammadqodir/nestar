@@ -249,4 +249,15 @@ export class PropertyService {
 
 		return result;
 	}
+
+	public async removePropertyByAdmin(propertyId: ObjectId): Promise<Property> {
+		const search: T = { _id: propertyId, propertyStatus: PropertyStatus.DELETE };
+		//Statusi faqat DELETE bolgan propertylarni ochirish imkoni mavjud, agar Status ACTIVE yoki SOLDga teng bolsa uni ochirib bolmaydi
+
+		const result = await this.propertyModel.findOneAndDelete(search).exec();
+
+		if (!result) throw new InternalServerErrorException(Message.REMOVE_FAILED);
+
+		return result;
+	}
 }
