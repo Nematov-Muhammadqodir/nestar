@@ -5,8 +5,5 @@ import { Model } from 'mongoose';
 
 @Injectable()
 export class CommentService {
-	constructor(
-		@InjectModel('Comment') commentModel: Model<Comment>,
-		private readonly commentService: CommentService,
-	) {}
+	constructor(@InjectModel('Comment') commentModel: Model<Comment>) {}
 }

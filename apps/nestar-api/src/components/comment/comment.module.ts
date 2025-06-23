@@ -6,13 +6,16 @@ import CommentSchema from '../../schemas/Comment.model';
 import { MemberModule } from '../member/member.module';
 import { AuthModule } from '../auth/auth.module';
 import { ViewModule } from '../view/view.module';
+import { PropertyModule } from '../property/property.module';
+import { BoardArticle } from '../../libs/dto/board-article/board-article';
 
 @Module({
 	imports: [
 		MongooseModule.forFeature([{ name: 'Comment', schema: CommentSchema }]),
-		MemberModule,
 		AuthModule,
-		ViewModule,
+		MemberModule,
+		PropertyModule,
+		BoardArticle,
 	],
 	providers: [CommentService, CommentResolver],
 })

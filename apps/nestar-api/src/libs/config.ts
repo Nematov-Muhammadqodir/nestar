@@ -15,9 +15,7 @@ export const availableProperties = [
 	'propertyRank',
 	'propertyPrice',
 ];
-
 export const availableCommentSorts = ['createdAt', 'updatedAt'];
-
 export const availableBoardArticleSorts = ['createdAt', 'updatedAt', 'articleLikes', 'articleViews'];
 
 export const validMimeTypes = ['image/png', 'image/jpg', 'image/jpeg'];
