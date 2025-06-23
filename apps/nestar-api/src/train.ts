@@ -1,3 +1,67 @@
+// TASK ZR:
+
+import e from 'express';
+
+// Shunday function yozing, bu function,
+// berilgan parametr string tarkibidagi raqam va sonlarni
+// sanab object sifatida qaytarsin.
+
+// MASALAN: countNumberAndLetters(“string152%\¥”); return {number: 3, letter: 6};
+
+function countNumberAndLetters(input: string) {
+	const symbols = [
+		'!',
+		'@',
+		'#',
+		'$',
+		'%',
+		'^',
+		'&',
+		'*',
+		'(',
+		')',
+		'-',
+		'_',
+		'=',
+		'+',
+		'[',
+		']',
+		'{',
+		'}',
+		'\\',
+		'|',
+		';',
+		':',
+		"'",
+		'"',
+		',',
+		'.',
+		'<',
+		'>',
+		'/',
+		'?',
+		'`',
+		'~',
+		'¥',
+	];
+
+	const numbers = input
+		.split('')
+		.map((ele) => Number(ele))
+		.filter((ele) => Number(ele));
+
+	let letters = [];
+	const symbolStrings = input
+		.split('')
+		.filter((str) => isNaN(Number(str)))
+		.forEach((ele) => (symbols.includes(ele) ? letters : letters.push(ele)));
+
+	const resultObj = { number: numbers.length, letter: letters.length };
+
+	return resultObj;
+}
+
+console.log(countNumberAndLetters('stridcdng152%\¥'));
 // TASK ZQ:
 
 // Shunday function yozing, bu function berilgan array parametr
@@ -6,12 +70,12 @@
 
 // MASALAN: findDuplicates([1,2,3,4,5,4,3,4]); return [3, 4];
 
-function findDuplicates(input: number[]) {
-	const result = input.filter((ele, i) => input.indexOf(ele) !== i);
+// function findDuplicates(input: number[]) {
+// 	const result = input.filter((ele, i) => input.indexOf(ele) !== i);
 
-	return [...new Set(result)];
-}
-console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 4, 4, 4]));
+// 	return [...new Set(result)];
+// }
+// console.log(findDuplicates([1, 2, 3, 4, 5, 4, 3, 4, 4, 4, 4]));
 // console.log('ZO');
 // function areArraysEqual(arr1: number[], arr2: number[]): boolean {
 // 	return arr1.every((val) => arr2.includes(val));
