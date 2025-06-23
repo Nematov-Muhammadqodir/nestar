@@ -224,6 +224,7 @@ export class PropertyService {
 		if (!result.length) throw new InternalServerErrorException(Message.NO_DATA_FOUND);
 
 		console.log('getAllPropertiesByAdmin ==> result', result);
+
 		return result[0];
 	}
 

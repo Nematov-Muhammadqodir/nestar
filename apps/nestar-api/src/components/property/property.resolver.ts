@@ -59,7 +59,10 @@ export class PropertyResolver {
 
 	@UseGuards(WithoutGuard)
 	@Query((returns) => Properties)
-	public async getProperties(@Args('input') input: PropertiesInquery, @AuthMember('_id') memberId: ObjectId) {
+	public async getProperties(
+		@Args('input') input: PropertiesInquery,
+		@AuthMember('_id') memberId: ObjectId,
+	): Promise<Properties> {
 		console.log('Query: getProperties');
 		return await this.propertyService.getProperties(memberId, input);
 	}
