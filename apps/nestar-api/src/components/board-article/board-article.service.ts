@@ -184,6 +184,8 @@ export class BoardArticleService {
 		console.log('Service: boardArticleStatsEditor');
 		const { _id, targetKey, modifier } = input;
 
-		return await this.boardArticeModel.findOneAndUpdate(_id, { $inc: { [targetKey]: modifier } }, { new: true }).exec();
+		return await this.boardArticeModel
+			.findByIdAndUpdate(_id, { $inc: { [targetKey]: modifier } }, { new: true })
+			.exec();
 	}
 }
