@@ -59,6 +59,10 @@ export class PropertyService {
 
 				targetProperty.propertyViews++;
 			}
+
+			const likeInput = { memberId: memberId, likeRefId: propertyId, likeGroup: LikeGroup.MEMBER };
+
+			targetProperty.meLiked = await this.likeService.checkLikeExistance(likeInput);
 			//Like logic
 		}
 
