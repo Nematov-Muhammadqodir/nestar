@@ -1,6 +1,23 @@
-// TASK ZR:
+// TASK ZS:
 
 import e from 'express';
+
+// Shunday function yozing, bu function parametrdagi array ichida
+// bir marotaba takrorlangan element'ni qaytarsin
+
+// MASALAN: singleNumber([4, 2, 1, 2, 1]); return 4;
+
+function singleNumber(input: number[]) {
+	return input.filter((ele, i, arr) => {
+		return input.indexOf(ele) === input.lastIndexOf(ele);
+	});
+}
+
+console.log(singleNumber([4, 2, 1, 2, 1]));
+
+// TASK ZR:
+
+// import e from 'express';
 
 // Shunday function yozing, bu function,
 // berilgan parametr string tarkibidagi raqam va sonlarni
@@ -8,60 +25,60 @@ import e from 'express';
 
 // MASALAN: countNumberAndLetters(“string152%\¥”); return {number: 3, letter: 6};
 
-function countNumberAndLetters(input: string) {
-	const symbols = [
-		'!',
-		'@',
-		'#',
-		'$',
-		'%',
-		'^',
-		'&',
-		'*',
-		'(',
-		')',
-		'-',
-		'_',
-		'=',
-		'+',
-		'[',
-		']',
-		'{',
-		'}',
-		'\\',
-		'|',
-		';',
-		':',
-		"'",
-		'"',
-		',',
-		'.',
-		'<',
-		'>',
-		'/',
-		'?',
-		'`',
-		'~',
-		'¥',
-	];
+// function countNumberAndLetters(input: string) {
+// 	const symbols = [
+// 		'!',
+// 		'@',
+// 		'#',
+// 		'$',
+// 		'%',
+// 		'^',
+// 		'&',
+// 		'*',
+// 		'(',
+// 		')',
+// 		'-',
+// 		'_',
+// 		'=',
+// 		'+',
+// 		'[',
+// 		']',
+// 		'{',
+// 		'}',
+// 		'\\',
+// 		'|',
+// 		';',
+// 		':',
+// 		"'",
+// 		'"',
+// 		',',
+// 		'.',
+// 		'<',
+// 		'>',
+// 		'/',
+// 		'?',
+// 		'`',
+// 		'~',
+// 		'¥',
+// 	];
 
-	const numbers = input
-		.split('')
-		.map((ele) => Number(ele))
-		.filter((ele) => Number(ele));
+// 	const numbers = input
+// 		.split('')
+// 		.map((ele) => Number(ele))
+// 		.filter((ele) => Number(ele));
 
-	let letters = [];
-	const symbolStrings = input
-		.split('')
-		.filter((str) => isNaN(Number(str)))
-		.forEach((ele) => (symbols.includes(ele) ? letters : letters.push(ele)));
+// 	let letters = [];
+// 	const symbolStrings = input
+// 		.split('')
+// 		.filter((str) => isNaN(Number(str)))
+// 		.forEach((ele) => (symbols.includes(ele) ? letters : letters.push(ele)));
 
-	const resultObj = { number: numbers.length, letter: letters.length };
+// 	const resultObj = { number: numbers.length, letter: letters.length };
 
-	return resultObj;
-}
+// 	return resultObj;
+// }
 
-console.log(countNumberAndLetters('stridcdng152%\¥'));
+// console.log(countNumberAndLetters('stridcdng152%\¥'));
 // TASK ZQ:
 
 // Shunday function yozing, bu function berilgan array parametr
