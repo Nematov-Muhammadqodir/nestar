@@ -8,9 +8,18 @@ import { AuthService } from '../auth/auth.service';
 import { AuthModule } from '../auth/auth.module';
 import { ViewModule } from '../view/view.module';
 import { LikeModule } from '../like/like.module';
+import FollowSchema from '../../schemas/Follow.model';
 
 @Module({
-	imports: [MongooseModule.forFeature([{ name: 'Member', schema: MemberSchema }]), AuthModule, ViewModule, LikeModule],
+	imports: [
+		MongooseModule.forFeature([
+			{ name: 'Member', schema: MemberSchema },
+			{ name: 'Follow', schema: FollowSchema },
+		]),
+		AuthModule,
+		ViewModule,
+		LikeModule,
+	],
 
 	providers: [MemberService, MemberResolver],
 	exports: [MemberService],
