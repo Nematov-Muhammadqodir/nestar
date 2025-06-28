@@ -5,6 +5,7 @@ import { Properties, Property } from '../../libs/dto/property/property';
 import {
 	AgentPropertiesInquiry,
 	AllPropertiesInquiry,
+	OrdinaryInquery,
 	PropertiesInquery,
 	PropertyInput,
 } from '../../libs/dto/property/property.input';
@@ -170,6 +171,10 @@ export class PropertyService {
 		}
 	}
 
+	public async getFavorites(memberId: ObjectId, input: OrdinaryInquery): Promise<Properties> {
+		return await this.likeService.getFavoriteProperties(memberId, input);
+	}
+
 	public async likeTargetProperty(memberId: ObjectId, likeRefId: ObjectId): Promise<Property> {
 		console.log('Service: likeTargetProperty');
 
@@ -210,7 +215,7 @@ export class PropertyService {
 				{
 					$facet: {
 						list: [
-							{ $skip: input.page * input.limit },
+							{ $skip: (input.page - 1) * input.limit },
 							{ $limit: input.limit },
 							lookupMember,
 							{ $unwind: '$memberData' },

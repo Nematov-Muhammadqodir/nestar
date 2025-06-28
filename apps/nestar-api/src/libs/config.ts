@@ -48,6 +48,7 @@ export const lookupAuthMemberLiked = (memberId: T, targetRefId: string = '$_id')
 						},
 					},
 				},
+
 				{
 					$project: {
 						_id: 0,
@@ -123,5 +124,14 @@ export const lookupFollowerData = {
 		localField: 'followerId',
 		foreignField: '_id',
 		as: 'followerData',
+	},
+};
+
+export const lookupFavorite = {
+	$lookup: {
+		from: 'members',
+		localField: 'favoriteProperty.memberId',
+		foreignField: '_id',
+		as: 'favoriteProperty.memberData',
 	},
 };
