@@ -175,6 +175,10 @@ export class PropertyService {
 		return await this.likeService.getFavoriteProperties(memberId, input);
 	}
 
+	public async getVisited(memberId: ObjectId, input: OrdinaryInquery): Promise<Properties> {
+		return await this.viewService.getVisitedProperties(memberId, input);
+	}
+
 	public async likeTargetProperty(memberId: ObjectId, likeRefId: ObjectId): Promise<Property> {
 		console.log('Service: likeTargetProperty');
 
