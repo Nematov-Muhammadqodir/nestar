@@ -1,3 +1,27 @@
+// TASK ZU:
+
+// Shunday function yozing, va bu function parametr sifatida
+// raqamlardan iborat array'ni qabul qilsin. Function'ning vazifasi,
+// berilgan parametr array tarkibida takrorlanmagan raqamlarni topib
+// ularni yig'indisini qaytarsin.
+
+// MASALAN: sumOfUnique([1,2,3,2]); return 4;
+
+// Yuqoridagi misolda, argument sifatida pass qilinayotgan array
+// tarkibida bir marotabadan ortiq takrorlanmagan raqamlar, bular '1', '3'.
+// Va natija sifatida yig'indi 4'ga teng.
+
+function sumOfUnique(input: number[]) {
+	const uniqueNumbers = input.filter((ele, i) => {
+		return input.indexOf(ele) === input.lastIndexOf(ele);
+	});
+
+	return uniqueNumbers.reduce((acc, cur) => {
+		return acc + cur;
+	}, 0);
+}
+
+console.log(sumOfUnique([1, 2, 3, 5, 2]));
 // TASK ZT:
 
 // Shunday function yozing, bu function parametrdagi string ichida
@@ -8,15 +32,15 @@
 // Yuqoridagi misolda, 'stamp' so'zi tarkibida barcha harflar bir marotabadan
 // ortiq takrorlanmagan, lekin shartga muvofiq, birinchi topilgan harf indeksi qaytarilmoqda.
 
-function firstUniqueCharIndex(input: string) {
-	let pushed = [];
-	input.split('').map((ele, i) => {
-		return input.indexOf(ele) === input.lastIndexOf(ele) ? pushed.push(i) : pushed;
-	});
-	return pushed[0];
-}
+// function firstUniqueCharIndex(input: string) {
+// 	let pushed = [];
+// 	input.split('').map((ele, i) => {
+// 		return input.indexOf(ele) === input.lastIndexOf(ele) ? pushed.push(i) : pushed;
+// 	});
+// 	return pushed[0];
+// }
 
-console.log(firstUniqueCharIndex('stamp'));
+// console.log(firstUniqueCharIndex('stamp'));
 // ssttammpp
 
 // TASK ZS:
