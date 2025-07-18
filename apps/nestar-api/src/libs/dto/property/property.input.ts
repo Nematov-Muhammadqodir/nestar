@@ -123,15 +123,15 @@ export class PISearch {
 	options?: string[];
 
 	@IsOptional()
-	@Field(() => [String], { nullable: true })
+	@Field(() => PricesRange, { nullable: true }) // remove [String]
 	pricesRange?: PricesRange;
 
 	@IsOptional()
-	@Field(() => [String], { nullable: true })
+	@Field(() => PeriodsRange, { nullable: true })
 	periodsRange?: PeriodsRange;
 
 	@IsOptional()
-	@Field(() => [String], { nullable: true })
+	@Field(() => SquaresRange, { nullable: true })
 	squaresRange?: SquaresRange;
 
 	@IsOptional()
