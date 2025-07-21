@@ -31,9 +31,6 @@ export class MemberInput {
 
 @InputType()
 export class LoginInput {
-	constructor() {
-		console.log('Pipe executed');
-	}
 	@IsNotEmpty()
 	@Length(3, 12)
 	@Field(() => String)
@@ -47,6 +44,9 @@ export class LoginInput {
 
 @InputType()
 class AISearch {
+	constructor() {
+		console.log('I am here too');
+	}
 	@IsOptional()
 	@Field(() => String, { nullable: true })
 	text?: string;
@@ -54,6 +54,9 @@ class AISearch {
 
 @InputType()
 export class AgentsInquiry {
+	constructor() {
+		console.log('I am here');
+	}
 	@IsNotEmpty()
 	@Min(1)
 	@Field(() => Int)
@@ -65,7 +68,7 @@ export class AgentsInquiry {
 	limit: number;
 
 	@IsOptional()
-	@IsIn([availableAgentSorts])
+	@IsIn(availableAgentSorts)
 	@Field(() => String, { nullable: true })
 	sort?: string;
 

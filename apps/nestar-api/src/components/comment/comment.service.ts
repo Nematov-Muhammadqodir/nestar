@@ -114,6 +114,8 @@ export class CommentService {
 		const { commentRefId } = input.search;
 		const match: T = { commentRefId: commentRefId, commentStatus: CommentStatus.ACTIVE };
 		const sort: T = { [input.sort ?? 'createdAt']: input.direction ?? Direction.DESC };
+		console.log('getComments match', match);
+		console.log('getComments commentRefId', commentRefId);
 
 		const result: Comments[] = await this.commentModel.aggregate([
 			{ $match: match },
@@ -132,7 +134,7 @@ export class CommentService {
 		]);
 
 		if (!result.length) throw new InternalServerErrorException(Message.NO_DATA_FOUND);
-
+		console.log('getComments result', result[0]);
 		return result[0];
 	}
 
