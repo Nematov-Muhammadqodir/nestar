@@ -15,21 +15,21 @@ services:
     # FOR PRODUCTION
     command: bash -c "npm install && npm run build && npm run start:prod"
 
-  # nestar-betch:
-  #   container_name: nestar-betch
-  #   restart: always
-  #   image: node:20.10.0
-  #   ports:
-  #     - 4002:3008
-  #   volumes:
-  #     - ./:/usr/src/nestar
-  #   working_dir: /usr/src/nestar
+  nestar-betch:
+    container_name: nestar-betch
+    restart: always
+    image: node:20.10.0
+    ports:
+      - 4002:3008
+    volumes:
+      - ./:/usr/src/nestar
+    working_dir: /usr/src/nestar
 
-  #   networks:
-  #     - monorepo-network
+    networks:
+      - monorepo-network
 
-  #   # FOR PRODUCTION
-  #   command: bash -c "npm install && npm run build && npm run start:prod:batch"
+    #   # FOR PRODUCTION
+    command: bash -c "npm install && npm run build && npm run start:prod:batch"
 
 networks:
   monorepo-network:
